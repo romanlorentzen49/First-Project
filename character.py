@@ -5,19 +5,13 @@ class Character:
         self.received = False
 
     def talk_to_player(self,player_name, player_msg):
-        if self.received == False:
-            print(f"{self.name} says: {Hi {player_name}. I am looking for a star. Do you have one for me?}")
-            YN = input("Do you have a star? (Y/N) ")
-            if YN == "Y":
-        
-            else:
-            print(f"{self.name} says: {I see. Keeping looking for a star.}")
-        
+        print("{self.name} says: {player_name}, welcome to the Celestial Jungle! Here is a cold drink for your travels.")
+        print("{player_name} drinks the cold drink and feels refreshed. Until {player_name} passes out. {self.name} tampered with the drink.")
+
+    def kidnap(player_name)
+        print("A few hours later, {player_name} wakes up in some bedroom. The room is dark and there is a door to the north. The door is locked. But you feel something dangling from the ceiling. You make out that it is a string.")
+        print("What do you do? (type 'pull' or 'leave')")
+        if input() == "pull":
+            print("You pull the string and a lightbulb turns on. You see a key on the ground. You pick it up and unlock the door. You leave the room.")
         else:
-            print(f"{self.name} says: {I already have what I need. Go away!}")
-
-
-    def received_item(self):
-        self.received = True
-        self.append(item)
-        print(f"{self.name} says: {Thank you for the {item.name}. I will treasure it forever.}")
+            print("You start feel around for any objects you can find. You find an oddly shaped lock on the door. You feel the lock and feel a puzzle.")
