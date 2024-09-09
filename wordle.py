@@ -1,5 +1,5 @@
 import random
-word_list = ["SLICE","GAMES","VIDEO","VIVID","LUCID","DREAMS","STYLE","TRACK","SPEED","HAPPY","SMORE","SMOKE","LISTS","TRUCK"]
+word_list = ["SLICE","GAMES","VIDEO","VIVID","LUCID","DREAM","STYLE","TRACK","SPEED","HAPPY","SMORE","SMOKE","LISTS","TRUCK"]
 # TASK A: Define a variable 'word' that holds the correct word for the wordle game
 word = random.choice(word_list)
 
