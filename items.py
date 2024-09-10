@@ -4,7 +4,7 @@ class item():
         self.description = description
         self.damage = damage
 
-item1 = item("sword", "a very sharp sword", 100)
+item1 = item("sword", "a very sharp sword", 50)
 
 class fists():
     def __init__(self, name, description, damage):
@@ -18,4 +18,4 @@ class taser():
         self.name = name
         self.description = description
         self.damage = damage
-taser1 = taser("taser", "a taser that can be used to stun an enemy and electricute them", 10)
+taser1 = taser("taser", "a taser that can be used to stun an enemy and electricute them", 20)
