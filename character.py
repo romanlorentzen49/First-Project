@@ -4,6 +4,13 @@ from items import taser1
 from items import fists1
 from items import item1
 class Character:
+
+#Represents a character in the game.
+
+#Args:
+    #name (str): The name of the character.
+    #health (int): The initial health of the character.
+
     def __init__(self, name, health):
         self.name = name
         self.health = health
@@ -15,11 +22,17 @@ Dragon = Character("Dragon", 100)
 
 
 def talk_to_player():
+
+    #Handles the player's interaction with the NPC Diddy, including being offered a drink that is tampered with, causing the player to pass out.
+    
     Player.name = input("What is your name?")
     print(NPC.name + " says: "+ Player.name +" , welcome to the Celestial Jungle! Here is a cold drink for your travels.")
     print(Player.name + " drinks the cold drink and feels refreshed. Until "+ Player.name+ " passes out. "+ NPC.name +" tampered with the drink.")
 
 def kidnap():
+
+    #Handles the player's escape from a locked room in the Celestial Jungle. The player can either pull a string to turn on a light and find useful items, or try to pick the lock on the door to escape the room. Once outside the room, the player is met with a note indicating they have been captured by the Celestial Jungle and will be fed to the Celestial Dragon. The player can then try to open the next door to the north or return to the hallway.
+
     print("A few hours later, " + Player.name +" wakes up in some bedroom. The room is dark and there is a door to the north. The door is locked. But you feel something dangling from the ceiling. You make out that it is a string.")
     print("What do you do? (type 'pull' or 'leave')")
     if input() == "pull":
@@ -41,10 +54,14 @@ def kidnap():
     print("You made it outside! You are free to roam the jungle, but be aware of the Celestial Dragon and its Celestial Guardians.")
 
 def outside():
-    #have sword
-    print("You see a cave. You walk inside and find a treasure chest. You open the chest and find" + item1.description + ". You take the "+ item1.name +". Do you want to continue into the cave or go back to the Celestial Jungle? (type 'cave' or 'jungle')")
+
+    #Handles the player's exploration of the Celestial Jungle, including interacting with the Celestial Dragon and other NPCs.
+    
+    #The `outside()` function allows the player to explore the jungle, enter a cave, and ultimately confront the Celestial Dragon. The player can acquire various items and use them to defeat the dragon.
+        #have sword
+    print("You see a cave. Do you want to go inside the cave or explore the jungle? (type 'cave')")
     if input() == "cave":
-        print("You continue walking through the cave. You see some vines towards the end of the cave. You walk towards the vines. Do you want to cut the vines or go back to the jungle. (type 'cut' or 'leave')")
+        print("You walk into the cave. You see treasure chest. You open the chest and find a "+ item1.name+". You take the sword and continue through the cave and find some vines. Do you want to cut the vines or go back to the jungle. (type 'cut' or 'leave')")
         if input() == "cut":
             print("You cut the vines and continue through the cave and find the Celestial Dragon. You fight the Celestrial Dragon which has " + str(Dragon.health) +" health with your "+ item1.name +" which does " + str(item1.damage) +" damage. You take the first shot but miss. The Celestial Dragon hits you back.")
             Player.health =  (Player.health - 50)
@@ -92,14 +109,39 @@ def outside():
                                 print("You throw the "+ item1.name +" into the dragon's mouth, but the dragon eats the "+ item1.name +" and breathes fire at you and you die.")
                         
             else:#have sword
-                print("You leave the animal and continue exploring the jungle. You see a beam of light in the distance. You walk towards the light and notice it goes over a mountain. Do you want to go around the mountain or over the mountin? (type 'around' or 'over')")
+                print("You leave the animal and continue exploring the jungle. You see a beam of light in the distance. You walk towards the light and notice it is on the other side of a mountain. Do you want to go around the mountain or over the mountin? (type 'around' or 'over')")
                 if input() == "around":
-                    print("You walk around the mountain.")
+                    print("You walk around the mountain. And see a guard. Do you want to fight the guard or try and sneak past the guard and continue exploring? (type 'fight' or 'sneak')")
                 else:
                     print("You walk over the mountain and get a good viewpoint to see what the beam of light is. You see that it is a Celestial Dragon. You walk towards the dragon and fight it with the weapons you have. You have ")
     else:
         print("You walk back to the Celestial Jungle. You see a Celestial Guard. Do you want to fight the guard or try and sneak past the guard and continue exploring? (type 'fight' or 'sneak')")
         if input() == "fight":
-            print("You fight the guard and luckily win without anything but your fists and find some sort of celestial taser. But you have a limited time before the guard must check in. You pick up a taser off of the guard.")
+            print("You fight the guard and luckily win without anything but your fists and find some sort of celestial taser. But you have a limited time before the guard must check in. You pick up a taser off of the guard. Do you want to continue exploring the jungle or go into the cave. (type 'cave' or 'jungle')")
+            if input() == "cave":
+                print("print(You walk into the cave. You see treasure chest. You open the chest and find a "+ item1.name+". You take the sword and continue through the cave and find some vines. Do you want to cut the vines or go back to the jungle. (type 'cut' or 'leave')")
+                if input() == "cut":
+                    print("You cut the vines and continue through the cave and find the Celestial Dragon. You fight the Celestrial Dragon which has " + str(Dragon.health) +" health with your "+ item1.name +" which does " + str(item1.damage) +" damage. You take the first shot but miss. The Celestial Dragon hits you back.")
+                Player.health =  (Player.health - 50)
+                print("You have " + str(Player.health) + " health left.")
+                print("You try to hit the Celestial Dragon and you land a hit. The Celestial Dragon is seriously hurt.")
+                Dragon.health =  (Dragon.health - 50)
+                print("The dragon has " + str(Dragon.health) + " health left.")
+                print("You can either try and jump onto the Dragon and finish it once and for all or try one more basic attack to end it.(type 'jump' or 'attack')")
+                if input() == "jump":
+                    print("You jump onto the Dragon and finish it once and for all. You win the game!")
+                else:
+                    print("You try to hit the Dragon with a basic attack but the Dragon stops you in your tracks and eats you.")
+                    Player.health =  (Player.health - 50)
+                    print("The dragon has " + str(Player.health) + " health left.")
+                    print("You lose the game!")
+            else: 
+                print("You continue walking through the jungle. You see a beam of light in the distance. You walk towards the light and notice it is on the other side of a mountain. Do you want to go around the mountain or over the mountin? (type 'around' or 'over')")
+                if input() == "around":
+                    print("You walk around the mountain. And see a guard. Do you want to fight the guard or try and sneak past the guard and continue exploring? (type 'fight' or 'sneak')")
+                else:
+                    print("As you walk closer to the mountain, you notice there is a cave that seems to go through the mountain. You cut the vines at the end of the cave and are met with the Celestial Dragon.")
+                    print("As you begin to start fighting the dragon, you stun it with your taser. The dragon now has ")
+                
         else:
             print("You try to sneak past the guard but the guard sees you and you get captured. You have a bag over your head so you don't know where you are going. When the mask is taken off of you, you see the Celestial Dragon. You can't fight back since you are tied down. The Celestial Dragon eats you.")
